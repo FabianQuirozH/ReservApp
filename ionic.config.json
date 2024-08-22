@@ -1,0 +1,7 @@
+{
+  "name": "RunFama",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
