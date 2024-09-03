@@ -15,8 +15,10 @@ export class RegistroPage implements OnInit {
     rut:new FormControl('',[Validators.minLength(9),Validators.maxLength(10),Validators.required, Validators.pattern("[0-9]{7,8}-[0-9kK]{1}")]), 
     nombre:new FormControl('',[Validators.required,Validators.pattern("[a-z-A-Z]{3,5}")]), 
     fecha_nacimiento:new FormControl('',[Validators.required,]), 
-    genero:new FormControl('',[Validators.required]) //el required es para que sea obligatorio el dato 
+    genero:new FormControl('',[Validators.required]), //el required es para que sea obligatorio el dato 
     //validar la fecha de nacimiento creando un metodo,
+    tiene_equipo: new FormControl('no',[Validators.required]),
+    nombre_equipo: new FormControl('',[])
   });
 
   public alertButtons = [
