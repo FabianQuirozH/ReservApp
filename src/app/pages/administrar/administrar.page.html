@@ -18,12 +18,25 @@
           </ion-radio-group>
           <ion-input *ngIf="persona.controls.tiene_equipo.value=='si'" formControlName="nombre_equipo" type="text" label="Nombre equipo" labelPlacement="stacked"></ion-input>
           
-          <ion-button [disabled]="persona.invalid" type="submit" size="block" color="warning">REGISTRAR</ion-button> <!--toda variabe quetenga un tag se puede condicionar con []el persona.valid es para validar, con el valid, si el formulario es valido da un true, con invalid lo otro--> 
+          <ion-button [disabled]="persona.invalid" type="submit" size="block" color="warning">REGISTRAR</ion-button> <!--toda variabe quetenga un tag se puede condicionar con []el persona.valid es para validar, con el valid, si el formulario es valido da un true, con invalid lo otro-->
+          <ion-button (click)="modificar()" size="block" color="dark">MODIFICAR</ion-button> 
+          <ion-button type="reset" size="block" color="secondary">LIMPIAR</ion-button><!--boton para limpiar-->
         </form>
     </ion-card>
 
     <ion-list *ngFor="let usuario of usuarios">
+      <ion-item-sliding>
+        <ion-item-options side="start">
+          <ion-item-option (click)="buscar(usuario.rut)" color="warning">BUSCAR</ion-item-option>
+        </ion-item-options>
+
         <ion-item>{{usuario.rut}} - {{usuario.nombre}}</ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option (click)="eliminar(usuario.rut)" color="danger">ELIMINAR</ion-item-option>
+        </ion-item-options>
+
+      </ion-item-sliding>
     </ion-list>
     
 </ion-content>
